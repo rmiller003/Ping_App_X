@@ -1,19 +1,21 @@
 from tkinter import *
+from tkinter import messagebox
 
 window = Tk()
-window.wm_geometry("400x50")
-window.title("Tkinter App X")
+window.geometry("400x100")
+window.title("Button App")
 
-lbl_1 = Label(window, text="Default Formatting")
-lbl_1.pack()
+lbl = Label(window, text="Click a Button")
+lbl.pack()
 
-lbl_2 = Label(window, text="Red Text", fg="red")
-lbl_2.pack()
+msg_warning = "This is a WARNING Message"
+def warning():
+    messagebox.showwarning("Warning", msg_warning)
 
-lbl_3 = Label(window, text="RAISED BLUE Text", fg="blue", relief="raised")
-lbl_3.pack()
+btn_warn = Button(window, text="Warning Info", command=warning)
+btn_warn.pack()
 
-lbl_4 = Label(window, text="Text with Yellow Background", bg="yellow")
-lbl_4.pack()
+btn_close = Button(window, text="Exit", command=window.destroy)
+btn_close.pack()
 
 window.mainloop()
